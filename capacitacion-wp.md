@@ -131,13 +131,13 @@ controls: true
 --
 
 #####Categories:
-- Permite agrupar contenido y recorrerlos según su nombre y permite jerarquía. En general ya están pre-definidos aunque permite crearse nuevos a medida que se necesite.
+- Permite agrupar contenido y recorrerlos según su nombre y crear jerarquía. En general ya están pre-definidos aunque permite crearse nuevos a medida que se necesite.
 - Genera URL del tipo: `categoria/nombre`.
 
 --
 
 #####Tags:
-- Definen contenido y aunque también permite recorrerlos según su nombre, no es su función. Ayudan al SEO si bien utilizados y pueden ser utilizados como *keywords* ó *microdata*.
+- Definen contenido y aunque también permite recorrerlos según su nombre, no es su función. Ayudan al SEO si son bien utilizados y pueden servir como *keywords* ó *microdata*.
 - Genera URL del tipo: `etiqueta/nombre`.
 - Permite crear *nube de tags*. ☠
 
@@ -145,7 +145,7 @@ controls: true
 
 ####2.5.2. Custom Taxonomies
 
-- Permite crear, agrupar y recorrer tipos de contenido de cualquier tipo y de cualquier manera imaginable.
+- Permite crear, agrupar y recorrer contenido de cualquier tipo y de cualquier manera imaginable.
 - Genera URL del tipo: `nombrecustomtaxonomy/nombre`.
 - Permite crear *nube de tags*. ☠
 - Se define en functions.php de cada plantilla
