@@ -1,7 +1,7 @@
 #Capacitación I2B
 ##WordPress como CMS
 
-![WordPress como CMS](images/portada.png)
+![WordPress como CMS](https://cdn.rawgit.com/I2BTech/capacitacion-wordpress-como-cms/gh-pages/images/portada.png)
 
 ###Temas:
 - 1. Qué es realmente WordPress
