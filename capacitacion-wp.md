@@ -28,15 +28,22 @@ controls: true
 --
 
 ###Temas:
-- 2.6. Custom fields
-	- 2.6.1. Meta boxes
-- 2.7. Diseccionando una plantilla
-	- 2.7.1. El loop();
-	- 2.7.2. Tags comunes
-	- 2.7.3. Condicionales
-	- 2.7.4. Snippets
-- 2.8. Plugins, Widgets
-- 2.9. Seguridad
+- 2.6. Diseccionando una plantilla
+	- 2.6.1. El loop();
+	- 2.6.2. Tags comunes
+	- 2.6.3. Condicionales
+	- 2.6.4. Snippets
+- 2.7. Custom fields
+	- 2.7.1. Meta boxes
+- 2.8. Menúes
+
+--
+
+###Temas:
+
+- 2.9. Plugins, Widgets
+- 2.10. Performance, caching
+- 2.11. Seguridad
 
 -- image-300 to-right
 
@@ -70,7 +77,7 @@ controls: true
 - Vista-controlador están integrados
 - A medida que crece en contenido, disminuye en performance
 
--- bg-cover
+-- bg-cover dashboard
 
 #Cómo hacer que WordPress haga lo que necesitamos
 
@@ -160,30 +167,7 @@ controls: true
 
 -- 
 
-####2.6. Custom fields
-
-> WordPress permite que cada contenido tenga campos personalizados, del tipo *meta-data*. El tipo de información que guarda es del tipo *key => value*.
-
--- 
-
-#####Ejemplo
-- Fecha nacimiento => 18-febrero-1981
-- Edad => 33 años
-
-![WordPress Custom Field](images/customfield.png)
-
---
-
-####2.6.1. Meta boxes
-
-> Extensión de un *custom field* con el cual permite personalización a cada tipo de contenido.
-> Se define en functions.php de cada plantilla
-
-![WordPress meta box](images/metabox.png)
-
---
-
-####2.7. Diseccionando una plantilla
+####2.6. Diseccionando una plantilla
 
 Un theme de Wordpress se compone de varios archivos que cumplen funciones específicas según su lugar en la estructura funcional, pero básicamente se necesitan sólo 2 archivos:
 
@@ -222,7 +206,7 @@ Un theme de Wordpress se compone de varios archivos que cumplen funciones espec�
 
 --
 
-####2.7.1. El loop();
+####2.6.1. El loop();
 
 El loop debe estar en index.php y en toda plantilla que se use para mostrar información de su *post* o *page* para mostrar contenido referente al contenido. 
 
@@ -269,9 +253,9 @@ Con la clase `WP_Query();` te entrega más y mejores parámetros argumentos y m�
 
 --
 
-####2.7.2. Tags comunes
+####2.6.2. Tags comunes
 
-*[WordPress Template Tags](http://codex.wordpress.org/Template_Tags)*
+*[WordPress Template Tags](http://codex.wordpress.org/Template_Tags)* | *[WordPress Chart Sheet](http://www.buildyourownblog.net/blog/time-saving-copypaste-wordpress-cheat-sheet/)*
 
 #####General
 
@@ -370,7 +354,7 @@ Con la clase `WP_Query();` te entrega más y mejores parámetros argumentos y m�
 
 --
 
-####2.7.3. Condicionales
+####2.6.3. Condicionales
 
 Permite crear reglas dependiendo si la condición (nativa de WordPress) existe:
 
@@ -398,7 +382,7 @@ has_post_thumbnail()   // ID
 	
 --
 
-####2.7.4. Snippets
+####2.6.4. Snippets
 
 *[WordPress Functions Snippets](https://github.com/juanbrujo/WordPress-Starter-Theme/blob/master/functions.php)*
 
@@ -475,7 +459,41 @@ remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
 --
 
-####2.8. Plugins, Widgets
+
+####2.7. Custom fields
+
+> WordPress permite que cada contenido tenga campos personalizados, del tipo *meta-data*. El tipo de información que guarda es del tipo *key => value*.
+
+-- 
+
+#####Ejemplo
+- Fecha nacimiento => 18-febrero-1981
+- Edad => 33 años
+
+![WordPress Custom Field](images/customfield.png)
+
+--
+
+####2.7.1. Meta boxes
+
+> Extensión de un *custom field* con el cual permite personalización a cada tipo de contenido.
+> Se define en functions.php de cada plantilla
+
+![WordPress meta box](images/metabox.png)
+
+--
+
+####2.8. Menúes
+
+WordPress permite administrar tantos menúes como sean necesarios de forma nativa, a través de `wp_nav_menu();`
+
+![WordPress Menu](images/menu.png)
+
+*[WordPress wp nav menu](http://codex.wordpress.org/Function_Reference/wp_nav_menu)*
+
+--
+
+####2.9. Plugins, Widgets
 
 Plugins y Widgets extienden funcionalidades nativas y crean nuevas que no existen en el core de WordPress.
 
@@ -483,24 +501,62 @@ Plugins y Widgets extienden funcionalidades nativas y crean nuevas que no existe
 
 --
 
-> Plugin: pieza de código funcional independiente de la plantilla.
+#####Plugin: 
+
+> Pieza de código funcional independiente de la plantilla, se activa para todo WordPress.
 
 ![WordPress Plugin](images/plugin.png)
 
 --
 
-> Widget: pieza de código funcional dependiente de la plantilla.
+#####Widget: 
+> Pieza de código funcional dependiente de la plantilla y que tiene directa relación con la interfaz, permite ser ubicado en determinadas zonas de la plantilla y posee un sistema de administración propio mediante drag & drop.
 
 ![WordPress Plugin](images/widget.png)
 
 --
 
-####2.9. Seguridad
+####2.10. Performance & Caching
+
+#####Plugins
+- Desactivar todo plugin que no esté en uso.
+- WordPress tiene su propio sistema de caché.
+- Trabajar con métodos propios de WordPress que privilegian su propio caché como `get_option();` y `update_option();`
+
+--
+
+#####Themes
+- Optimizar update de imágenes: 
+
+```
+add_theme_support('post-thumbnails')
+add_image_size('imagen_post', 220, 220, false); 
+```
+- Combina múltiples archivos .css y .js en los mínimos posibles, minificado.
+- Privilegia valores estáticos (en bruto) en la plantilla, por ejemplo:
+`<html <?php language_attributes(); >>`
+`	<meta charset="<?php bloginfo('charset'); ?>">`
+
+--
+
+#####Plugins & Server caching
+- [W3 Total Cache](http://wordpress.org/extend/plugins/wp-super-cache/)
+- [Varnish](https://www.varnish-cache.org/)
+- Evaluar llamar archivos estáticos desde un CDN como videos, imágenes.
+- Disminuir el número de revisiones que se guardan por post/page: `define( 'WP_POST_REVISIONS', 3 );`
+- Evaluar un stack LEMP: Linux + Nginx + MySQL + PHP5-APC
+- Externalizar el servicio de Feed (RSS) a [Feedburner](http://feedburner.google.com/).
+
+--
+
+####2.11. Seguridad
 
 - Mantener actualizado WordPress y sus plugins
 - Evitar utilizar plugins hecho por terceros
+- Borra toda plantilla, plugins y archivos innecesarios o que no estén activos
 - Mantener permisos de archivos y directorios correctos
 - Crear reglas .htaccess correctas
+- Evitar llamados SQL desde las plantillas; utiliza la clase `$wpdb();`
 
 
 *[Hardening WordPress](http://codex.wordpress.org/Hardening_WordPress)*
@@ -513,4 +569,4 @@ Plugins y Widgets extienden funcionalidades nativas y crean nuevas que no existe
 - [Wordfence Security](https://wordpress.org/plugins/wordfence/)
 - [WordPress Firewall 2](https://wordpress.org/plugins/wordpress-firewall-2/)
 
--- bg-cover
+-- bg-cover fin
