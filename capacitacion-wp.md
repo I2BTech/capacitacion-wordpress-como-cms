@@ -45,6 +45,22 @@ controls: true
 - 2.10. Performance, caching
 - 2.11. Seguridad
 
+-- bg-cover wordcamp
+
+###Porqué estoy YO aquí (y no otro)
+
+- Por muchos años desarrollando en WordPress: *blogs, sitios, intranet...* lo que sea.
+- Organicé la primera -y única- [WordCamp en Chile](http://chile.wordcamp.org/), año 2010.
+- Colaborador en un par de sitios.
+
+-- bg-cover ampersand
+
+###Porqué estoy YO aquí (y no otro)
+
+- Activamente contribuyendo para proyectos OpenSource
+![github contributions](images/github-contributions.png)
+- Me gusta la tipografía y caligrafía, especialmente el caracter `&`
+
 -- image-300 to-right
 
 ###Qué es realmente WordPress
@@ -76,6 +92,130 @@ controls: true
 - Susceptible a ataques y vulnerabilidades si no se sabe utilizar
 - Vista-controlador están integrados
 - A medida que crece en contenido, disminuye en performance
+
+--
+
+####RoadMap:
+
+- 2003: primer release 
+	- fork de *b2 cafelog*
+- 2004: versión 1.0 
+	-  *plugins* en v1.2
+	-  *themes*, *pages* en v1.5
+
+--
+
+####RoadMap:
+
+- 2005: versión 2.0
+	- *caching*, administración de usuarios y nueva UI en dashboard en v2.0
+	- *widgets* en v2.1
+	- *tags*, *permalinks* y *taxonomy* en v2.3
+	- *post revisions* en v2.5
+	- nueva UI en dashboard en v2.7
+	- *image editing* en v2.9
+
+--
+
+####RoadMap:
+
+- 2010: versión 3.0
+	- *custom post types*, *custom taxonomies*, *custom menu* y *multisite* en v3.0
+	- *theme customizer* en v3.4
+	- soporte para audio y video en v3.6
+- 2014: versión 4.0
+
+-- to-right
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####pepsialmaximo.cl
+- comunidad ([BuddyPress](https://buddypress.org/))
+- file upload / votos / ranking 
+- muro / galerías / chat / foro
+![pepsialmaximo.cl](images/ejemplos/pepsialmaximo.png)
+
+-- to-right image-300
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####juntoscontralasilicosis.cl
+<br>
+- blog
+- inscripcion de usuarios
+- biblioteca de documentos
+![juntoscontralasilicosis.cl](images/ejemplos/silicosis.png)
+
+-- to-right image-300
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####3msalud.cl
+- multisite, cms, blog
+- inscripcion de usuarios
+![3msalud.cl](images/ejemplos/3msalud.png)
+
+-- to-right image-300
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####3msalud.cl
+
+- biblioteca de documentos
+- perfilamiento de usuarios
+- muchos formularios
+![3msalud.cl](images/ejemplos/3msalud-2.png)
+
+-- to-right image-300
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####almagro.cl
+
+- custom-post-type
+- custom-taxonomy
+- simuladores
+- galerias
+- blog
+![almagro.cl](images/ejemplos/almagro.png)
+
+-- to-right
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####almagro.cl
+
+- inscripcion de usuarios
+- perfilamiento de usuarios
+- muchos formularios
+![almagro.cl](images/ejemplos/almagro-2.png)
+
+-- to-right image-300
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####padrinos.mariaayuda.cl
+
+- custom-post-type
+- custom-taxonomy
+- inscripción usuarios
+- dashboard customizado
+
+![padrinos.mariaayuda.cl](images/ejemplos/padrinos.png)
+
+-- to-right image-300
+
+####Ejemplos de lo q puede hacer WordPress
+
+#####buscandriu.cl
+
+automatización de:
+- creación de posts
+- asignación de categorías y taxonomías
+- twitteo cuando publicado
+- notificación
+
+![buscandriu.cl](images/ejemplos/buscandriu.png)
 
 -- bg-cover dashboard
 
@@ -176,6 +316,32 @@ Un theme de Wordpress se compone de varios archivos que cumplen funciones espec�
 
 *[WordPress Starter Theme](https://github.com/juanbrujo/WordPress-Starter-Theme)*
 
+--
+
+```
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); $site_description = get_bloginfo( 'description', 'display' ); echo " | $site_description"; ?></title>
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
+<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php the_title(); ?>
+	<?php the_excerpt(); ?>
+	<?php endwhile; else: ?>
+	¯\_(ツ)_/¯
+	<?php endif; ?>
+	<?php wp_footer(); ?>
+</body>
+</html>
+```
+--
+
+![wordpress starter theme](images/starter-theme.png)
+
 -- columns-2
 
 - index.php
@@ -223,7 +389,7 @@ El loop debe estar en index.php y en toda plantilla que se use para mostrar info
 
 --
 
-Con la clase `WP_Query();` te entrega más y mejores parámetros argumentos y métodos, por ejemplo, traerse los posts que estén en la categoría *Noticias*:
+La clase `WP_Query();` te entrega más y mejores parámetros argumentos y métodos, por ejemplo, traerse los posts que estén en la categoría *Noticias*:
 
 	<?php $query_noticias = new WP_Query( 'category_name=noticias' ); ?>
 

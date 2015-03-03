@@ -58,6 +58,14 @@
 
 
 /* FONDOS */
+.wordcamp:before {
+	background-image: url('images/wordcamp.jpg');
+	opacity: .5;
+}
+.ampersand:before {
+	background-image: url('images/ampersand.jpg');
+	opacity: .5;
+}
 .dashboard:before {
 	background-image: url('images/dashboard.png');
 	opacity: .5;
