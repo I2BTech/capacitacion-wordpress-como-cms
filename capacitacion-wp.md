@@ -7,6 +7,10 @@ style: css/style.css
 output: index.html
 controls: true
 
+-- centrado
+
+![TECHtalk](images/techtalk-logo.png)
+
 --
 
 # I2B Technologies
@@ -127,7 +131,7 @@ controls: true
 
 -- to-right
 
-####Ejemplos de lo q puede hacer WordPress
+####Ejemplos de lo que puede hacer WordPress
 
 #####pepsialmaximo.cl
 - comunidad ([BuddyPress](https://buddypress.org/))
@@ -142,7 +146,7 @@ controls: true
 #####juntoscontralasilicosis.cl
 <br>
 - blog
-- inscripcion de usuarios
+- inscripción de usuarios
 - biblioteca de documentos
 ![juntoscontralasilicosis.cl](images/ejemplos/silicosis.png)
 
@@ -152,7 +156,7 @@ controls: true
 
 #####3msalud.cl
 - multisite, cms, blog
-- inscripcion de usuarios
+- inscripción de usuarios
 ![3msalud.cl](images/ejemplos/3msalud.png)
 
 -- to-right image-300
@@ -185,7 +189,7 @@ controls: true
 
 #####almagro.cl
 
-- inscripcion de usuarios
+- inscripción de usuarios
 - perfilamiento de usuarios
 - muchos formularios
 ![almagro.cl](images/ejemplos/almagro-2.png)
@@ -682,24 +686,30 @@ Plugins y Widgets extienden funcionalidades nativas y crean nuevas que no existe
 
 --
 
+#### Ejemplo
+
+[![](images/complete-proyecto_th.jpg)](images/complete-proyecto.jpg)
+[![](images/complete_th.jpg)](images/complete.jpg)
+
+--
+
 ####2.10. Performance & Caching
 
 #####Plugins
 - Desactivar todo plugin que no esté en uso.
-- WordPress tiene su propio sistema de caché.
+- WordPress tiene su propio sistema de caché, úselo: `define('WP_CACHE', true);`
 - Trabajar con métodos propios de WordPress que privilegian su propio caché como `get_option();` y `update_option();`
 
 --
 
 #####Themes
-- Optimizar update de imágenes: 
-
+- Optimizar upload de imágenes: 
 ```
 add_theme_support('post-thumbnails')
 add_image_size('imagen_post', 220, 220, false); 
 ```
-- Combina múltiples archivos .css y .js en los mínimos posibles, minificado.
-- Privilegia valores estáticos (en bruto) en la plantilla, por ejemplo:
+- Combina múltiples archivos .css y .js en los mínimos posibles, minificados.
+- Privilegia valores estáticos (en bruto) en la plantilla que no cambiarán con el tiempo, por ejemplo:
 `<html <?php language_attributes(); >>`
 `	<meta charset="<?php bloginfo('charset'); ?>">`
 
@@ -724,8 +734,12 @@ add_image_size('imagen_post', 220, 220, false);
 - Crear reglas .htaccess correctas
 - Evitar llamados SQL desde las plantillas; utiliza la clase `$wpdb();`
 
-
 *[Hardening WordPress](http://codex.wordpress.org/Hardening_WordPress)*
+
+--
+
+![firewall](images/firewall.png)
+![firewall](images/firewall-2.png)
 
 --
 

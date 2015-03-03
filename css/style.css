@@ -55,7 +55,9 @@
 	.slide.columns-2 .slide-content li {
 		margin-left: 40px;
 	}
-
+.slide.centrado p {
+	text-align: center;
+}
 
 /* FONDOS */
 .wordcamp:before {
