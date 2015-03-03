@@ -13,12 +13,14 @@
 	- 2.5. Taxonomies
 		- 2.5.1. Categories / Tags
 		- 2.5.2. Custom Taxonomies
-- 2.6. Custom fields
-	- 2.6.1. Meta boxes
-- 2.7. Diseccionando una plantilla
-	- 2.7.1. El loop();
-	- 2.7.2. Tags comunes
-	- 2.7.3. Condicionales
-	- 2.7.4. Snippets
-- 2.8. Plugins, Widgets
-- 2.9. Seguridad
+	- 2.6. Diseccionando una plantilla
+		- 2.6.1. El loop();
+		- 2.6.2. Tags comunes
+		- 2.6.3. Condicionales
+		- 2.6.4. Snippets
+	- 2.7. Custom fields
+		- 2.7.1. Meta boxes
+	- 2.8. Menúes
+	- 2.9. Plugins, Widgets
+	- 2.10. Performance, caching
+	- 2.11. Seguridad
