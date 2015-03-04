@@ -236,6 +236,45 @@ automatización de:
 ![Estructura base WordPress](images/estructura-base.png)
 
 --
+#####wp-config
+```
+/**
+ * Conexión con BD
+ */
+define('DB_NAME', '');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
+/**
+ * Claves únicas de autentificación.
+ */
+define('AUTH_KEY', 'pon aquí tu frase aleatoria');
+define('SECURE_AUTH_KEY', 'pon aquí tu frase aleatoria');
+define('LOGGED_IN_KEY', 'pon aquí tu frase aleatoria');
+...
+```
+--
+#####wp-config
+```
+/**
+ * Prefijo de la BD, cambiar esto.
+ */
+$table_prefix  = 'wp_';
+/**
+ * Modo debug, false por defecto
+ */
+define('WP_DEBUG', false);
+/**
+ * Dejar intacto
+ */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
+require_once(ABSPATH . 'wp-settings.php');
+```
+
+--
 
 ####2.2. Posts
 
@@ -730,6 +769,7 @@ add_image_size('imagen_post', 220, 220, false);
 - Mantener actualizado WordPress y sus plugins
 - Evitar utilizar plugins hecho por terceros
 - Borra toda plantilla, plugins y archivos innecesarios o que no estén activos
+- Tener una correcta configuración de `wp-config.php`
 - Mantener permisos de archivos y directorios correctos
 - Crear reglas .htaccess correctas
 - Evitar llamados SQL desde las plantillas; utiliza la clase `$wpdb();`
