@@ -19,8 +19,8 @@ controls: true
 --
 
 ###Temas:
-- 1. Qué es realmente WordPress
-- 2. Cómo hacer que WordPress haga lo que necesitamos
+1. Qué es realmente WordPress
+2. Cómo hacer que WordPress haga lo que necesitamos
 	- 2.1. Estructura base
 	- 2.2. Posts
 	- 2.3. Pages
